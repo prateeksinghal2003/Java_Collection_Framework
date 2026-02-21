@@ -143,6 +143,7 @@ it is self balancing binary search tree
 it implements Navigable Map , which extends SortedMap
 
 16)Navigable Map extends SortedMap
+used for closest entries
 
 17)HashTable was in jdk 1.0 implements Map
 it is thread safe
@@ -155,9 +156,34 @@ even for read threads so we came up with Concurrent HashMap
 
 18)ConcurrentHashMap
 implements Concurrent Map which extends Map
+for concurrency in hash map use this
+Concurrency = many threads working on the same resource simultaneously without breaking data
+
+19)ConcurrentSkipListMap
+data is stored in data structure skip list
+data is stored in sorted manner and in synchronized way
+
+what is skip list
+similar to sorted linked list , having multiple layers to skip over portions of the list to provide faster
+access to elements
+
+layers or levels
+1,2,3,4,5,6,7,8,9
 
 
+level3:1--->5---->9
+level2:1-->3--->5--->7-->9
+level1:1->2->2->3->4->5->6->7->8->9
+Tc --O(n) for searching
+searching begins from level 3
+that is why it is termed as probabilistic data structure
+in this map key value pair are stored in skip list data structure
 
+20)Enum Map  implements Map interface
+21)Immutable Map--its content cannot be changed
+
+22)Set
+23)CopyOnWriteArraySet --for frequent read operations it is used
 
 
 

@@ -11,10 +11,12 @@ public class Concurrent_HashMap
 
         //java 8
         //no segmentation
-        //use compare and swap approach
+        //use compare and swap approach for writing operations
         //no locking except resizing and collision
 
         //size if full not get doubled , it is increased by 1
+
+
 
     }
 }
