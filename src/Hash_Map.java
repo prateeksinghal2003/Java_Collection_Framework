@@ -17,7 +17,7 @@ public class Hash_Map
         //hm.remove(1);
 
         //if key not found returns null
-        //hm.containsKey(key value)
+        //hm.containsKey(key_value)
         System.out.println(hm.containsValue("Sneha"));
 
         Set<Integer> s=hm.keySet();

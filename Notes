@@ -59,14 +59,14 @@ So:
 Readers → read old stable data (no lock)
 Writers → modify a new copy
 No data corruption ✔
------------------------------
+-------------------------------------------------------------
 9)Map does not extends Collection interface
 Key value pair
 Key-unique
 HashMap class implements Map
 Not thread safe
 constant time performance for get ,put, contains
------------------------
+--------------------------------------------------------------
 10)Internal Structure of HashMap
 key,value
 bucket--place where key value are stored

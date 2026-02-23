@@ -11,6 +11,13 @@ public class CopyOnWriteArrayList_Class
         //it creates the new list , older list is copied first  and then add or remove
         //after add/remove
         //reference is updated
+//        Whenever you do any modifying operation:
+//        add()
+//        remove()
+//        set()
+//        clear()
+//        addAll()
+//        removeIf() etc.
 
         //Read operations are fast
         //used when read intensive operations are there

@@ -15,6 +15,8 @@ public class Sorted_Map
         tm.put("ajay",12);
         System.out.println(tm);
 
+
+
         System.out.println(tm.firstKey());
         System.out.println(tm.headMap("naman"));//will not include naman ,start from head(sorted tree map)
         System.out.println(tm.tailMap("karan"));
