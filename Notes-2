@@ -1,0 +1,183 @@
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+1)What is toString() method?
+
+Every class in Java automatically extends Object class.
+
+So every object has:
+
+public String toString()
+
+Its job:
+
+Convert object into readable string representation
+
+Default behavior (from Object class)
+
+If you don’t override it:
+
+Student s = new Student("Prateek",9.2);
+System.out.println(s);
+
+Output:
+
+Student@5a07e868
+
+Meaning:
+
+ClassName@HexadecimalHashCode
+
+Not useful for humans
+
+Why we override toString()
+
+To print meaningful information
+
+Your code:
+
+public String toString()
+{
+    return name + "-->" + cgp;
+}
+
+Now:
+
+Student s = new Student("Prateek",9.2);
+System.out.println(s);
+
+Output:
+
+Prateek-->9.2
+
+Much better ✔
+
+Important Concept
+
+When you write:
+
+System.out.println(s);
+
+Java internally does:
+
+System.out.println(s.toString());
+
+So println(object) automatically calls toString()
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+2)Arrays.asList();
+What is Arrays.asList() ?
+
+It converts an array → List
+
+Integer arr[] = {10,20,30};
+
+List<Integer> list = Arrays.asList(arr);
+System.out.println(list);
+
+Output:
+
+[10, 20, 30]
+Important: It does NOT create normal ArrayList
+
+It creates a fixed-size list backed by array
+Meaning:
+List and array share same memory
+Proof (changes reflect both sides)
+Integer arr[] = {10,20,30};
+List<Integer> list = Arrays.asList(arr);
+arr[0] = 99;
+System.out.println(list);
+Output:
+[99, 20, 30]
+Because list is linked to array.
+
+Why add/remove fails
+list.add(40);     // Runtime error
+list.remove(1);   // Runtime error
+
+Error:
+UnsupportedOperationException
+Because size is fixed — array size cannot change.
+But modification allowed
+list.set(1,50);   // allowed
+Only replace allowed, not resize.
+
+How to make normal ArrayList
+List<Integer> list = new ArrayList<>(Arrays.asList(arr));
+Now add/remove works ✔
+
+Special case (very tricky question)
+int arr[] = {1,2,3};
+List list = Arrays.asList(arr);
+System.out.println(list);
+
+Output:
+[[I@15db9742]
+Because primitive array treated as single object.
+Correct way:
+Integer arr[] = {1,2,3};
+
+3)::::::::::::::::::::::::::::::::::::::::::::::
+.toArray(new String[0])
+
+String[] array1 = list.toArray(new String[0]);
+
+Let’s understand what it really does and why [0] is used.
+
+Purpose
+
+It converts List → Array
+
+Example:
+
+List<String> list = Arrays.asList("A","B","C");
+
+String[] array1 = list.toArray(new String[0]);
+
+Now:
+
+array1 → ["A","B","C"]
+Why not just toArray() ?
+Object[] arr = list.toArray();   // returns Object[]
+
+Problem:
+
+You cannot safely assign to String[]
+
+String[] arr = list.toArray(); // compile error
+
+Because it returns Object[].
+
+So Java provides overloaded method:
+
+<T> T[] toArray(T[] a)
+Why new String[0] ?
+
+You are giving type information to Java.
+
+Java now knows:
+
+"Create a String array and fill elements"
+
+Internally Java creates correct sized array automatically.
+
+So [0] is just a hint — not actual size.
+
+What Java internally does
+if given array size < list size
+    create new array of proper size
+else
+    use same array
+
+So both valid:
+
+list.toArray(new String[0]);
+list.toArray(new String[list.size()]);
+
+But modern Java prefers [0] (cleaner + optimized by JVM)
+
+Final Concept
+Method	Returns
+toArray()	Object[]
+toArray(new String[0])	String[]
+
+4)::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

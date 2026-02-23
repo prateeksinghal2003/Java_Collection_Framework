@@ -12,7 +12,7 @@ class String_Comparing implements Comparator<String>
 
 class Integer_Comparing implements Comparator<Integer> {
     @Override
-    //if o1 is > o2, then we get positive value , o1 is come later
+    //if o1 is > o2, then we get positive value(o1-o2) , o1 will come later
     //o1--3,o2---5
     //want in ascending order
     //o1-o2 , gives negative , means o1 comes first , so for ascending do o1-o2
@@ -103,6 +103,9 @@ public class Array_List
         al.add(23);
         al.add(7);
 
+        //can also do
+       // al.sort(null);
+
         al.sort(new Integer_Comparing());
         System.out.println(al);
 
@@ -112,7 +115,7 @@ public class Array_List
 
         //using lambda expressions
         list3.sort((a,b)->b.length()-a.length());
-        System.out.println(list3);
+        System.out.println("Using lamda functions "+list3);
 
 
         ArrayList<Student> stud=new ArrayList<>();
@@ -123,12 +126,14 @@ public class Array_List
 
         //o1 is coming after o2 when o2 cgpa is > than o1
         //cgp in descending order
+        //because in parameters we have o1,o2 so when return is 1 , when o2 cgp is > o1 so,
+        // o1 comes after o2
         stud.sort((o1,o2)->
         {
             if(o2.cgp-o1.cgp>0)
                 return 1;
 
-            else if(o1.cgp- o2.cgp>0)
+            else if (o1.cgp - o2.cgp > 0)
                 return -1;
 
             else
@@ -137,16 +142,6 @@ public class Array_List
         });
 
         System.out.println(stud);
-
-
-
-
-
-
-
-
-
-
 
     }
 }

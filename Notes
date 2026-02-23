@@ -1,4 +1,4 @@
-1)Collection interface is the root interface of Array_List.
+1)Collection interface is the root interface of ArrayList.
 It is present in java.util package.
 It is extended by other interfaces like List,Set,Queue
 ------------------------------------
