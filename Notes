@@ -1,3 +1,5 @@
+Collection extends Iterable
+
 1)Collection interface is the root interface of ArrayList.
 It is present in java.util package.
 It is extended by other interfaces like List,Set,Queue
@@ -186,6 +188,28 @@ in this map key value pair are stored in skip list data structure
 23)CopyOnWriteArraySet --for frequent read operations it is used
 
 
+24)Queue--it is an interface
+implemented by LinkedList,PriorityQueue,ArrayBlockingQueue
+
+25)PriorityQueue--class which implements Queue
+26)DoubleEndedQueue
+27)BlockingQueue an interface implemented by ArrayBlockingQueue--it is thread safe, wait to become non empty or some space
+or wait to become empty or some space
+simplifies concurrency
+in standard queue operations are executed immediately
+
+28)linkedBlockingQueue
+29)SynchronousQueue
+30)Delay Queue
+Blocking queue is used for multi threads
+
+31)ConcurrentLinkedQueue--supports lock free thread safe operations
+put , put can work concurrently
+
+32)ConcurrentLinkedDequeue--
+
+
+33)Iterator
 
 
 
