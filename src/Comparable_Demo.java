@@ -16,11 +16,54 @@ class Student2 implements Comparable<Student2>
     //4.compareTo(3)
     //want in descending order
     //4 comes before 3
-    //will only happen when 3.compareTo(4)
+
 
     public int compareTo(Student2 o)
     {
         return Double.compare(o.cgp,this.cgp);
+       // Double.compare(a, b) → compares two double values safely
+
+//        Returns:
+//        Result	Meaning
+//        negative	a < b
+//        0	a == b
+//        positive	a > b
+
+//        Your line
+//        Double.compare(o.cgp, this.cgp);
+//        It means:
+//        compare o.cgp with this.cgp in reverse order
+//        So it sorts in descending order
+
+//        When sorting, Java calls:
+//
+//    this.compareTo(o)
+//
+//        Rule:
+//
+//        return value	meaning
+//        negative	THIS comes before O
+//        positive	THIS comes after O
+//
+//⚠️ Always about this vs o, not about parameters inside Double.compare.
+//
+//            Now your code
+//        Double.compare(o.cgp, this.cgp);
+//
+//        Suppose:
+//
+//        this.cgp = 9
+//        o.cgp = 8
+//
+//        Step-1: evaluate
+//
+//        Double.compare(8, 9) → -1
+//
+//        Step-2: interpret result in compareTo
+//
+//        -1 means THIS comes before O
+//
+//        So 9 comes before 8 → descending order
     }
 
     @Override

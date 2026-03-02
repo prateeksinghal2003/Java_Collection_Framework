@@ -133,9 +133,12 @@ and memory would be freed
 
 12)WeakHashMap
 implements Map
+see notes-2(4)
 
 13)Comparable
 
+
+TreeMap implements NavigableMap--->extends--->SortedMap--->extends---->Map
 14)SortedMap-
 it is an interface extends Map that sort the keys in natural ordering or using Comparator
 

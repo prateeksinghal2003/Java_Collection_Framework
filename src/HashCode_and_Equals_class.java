@@ -26,6 +26,13 @@ public class HashCode_and_Equals_class
         System.out.println("Value for p3: " + map.get(p3));
 
 
+        //three objects are created in heap
+        //p1 comes , hashcode generated , gets bucket index
+        //p3 comes, same hashcode , then equals will run to compare p3 with existing keys
+        //p1 already exist and is equal to p3 in terms of name and id , so only data is changed in object
+        //which is p1 is pointing, p3 is never stored in HM.
+
+
 
 
 

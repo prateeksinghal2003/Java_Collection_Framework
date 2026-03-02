@@ -72,6 +72,7 @@ public class Array_List
         //al.set(1,3);//at index 1 what ever is the element replace by 3
 
         //can also set the capacity of arraylist
+        //see notes-2 (2)
         ArrayList<Integer> list=new ArrayList<>(12);
 
         List<String> list1= Arrays.asList("Mon","Tue","Wed");
@@ -91,6 +92,7 @@ public class Array_List
 
         //Converting to array
         String[] array1=list.toArray(new String[0]);
+        //see notes-2(3)
 
         //Sort an array
         Collections.sort(list3);

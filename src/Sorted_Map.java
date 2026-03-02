@@ -18,17 +18,30 @@ public class Sorted_Map
 
 
         System.out.println(tm.firstKey());
-        System.out.println(tm.headMap("naman"));//will not include naman ,start from head(sorted tree map)
-        System.out.println(tm.tailMap("karan"));
+        System.out.println(tm.headMap("naman"));//all keys < "naman"
+        System.out.println(tm.tailMap("karan"));//all keys >="karan
+
+
 
 
         NavigableMap<Integer,String> nm=new TreeMap<>();
+
+//        An advanced SortedMap that lets you navigate around keys (closest, higher, lower).
+//        You can get neighbours like lowerKey(), higherKey(), ceilingKey(), floorKey().
+
+
         nm.put(1,"ajay");
         nm.put(2,"karan");
         nm.put(3,"tarun"); //to move up and down ctrl+shift+up key
         //it has some methods
         System.out.println(nm.lowerKey(4)); //strictly less than 4
-        System.out.println(nm.ceilingKey(1)); // greater or equal than 1
+         System.out.println(nm.ceilingKey(1)); // Returns the least key greater than or equal
+        // to the given key, or null if there is no such key.
+
+        System.out.println(nm.floorKey(3));//Returns the greatest key less than or equal to the given key,
+        // or null if there is no such key.
+
+
 
 
     }

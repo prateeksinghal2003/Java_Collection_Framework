@@ -187,3 +187,90 @@ toArray()	Object[]
 toArray(new String[0])	String[]
 
 4)::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Weak Hash Map
+First understand references
+1️⃣ Strong Reference (normal object)
+Person p = new Person("Alice",1);
+
+p is pointing to object → object cannot be garbage collected
+
+As long as a variable points to object → object is ALIVE
+
+2️⃣ Weak Reference
+
+Object has no normal variable pointing to it
+Only WeakHashMap internally knows it
+
+GC is allowed to delete it anytime
+
+Normal HashMap
+HashMap<Person,String> map = new HashMap<>();
+
+Person p = new Person("Alice",1);
+map.put(p,"Engineer");
+
+p = null;   // removed reference
+System.gc();
+
+Still exists ❗
+
+Because HashMap says:
+
+I am holding the key strongly → don't delete
+
+So entry stays forever → possible memory leak
+
+WeakHashMap
+WeakHashMap<Person,String> map = new WeakHashMap<>();
+
+Person p = new Person("Alice",1);
+map.put(p,"Engineer");
+
+p = null;
+System.gc();
+
+Now ❗
+
+No variable → only WeakHashMap knows it
+GC deletes object → entry removed automatically
+
+Used vs Unused Key (important)
+Situation	Meaning
+Used key	Some variable still points to object
+Unused key	No variable points to object
+Final Concept
+
+HashMap
+Map protects the object
+WeakHashMap
+Map does NOT protect the object
+
+
+Because the key is still strongly referenced inside the HashMap
+
+HashMap<Person,String> map = new HashMap<>();
+
+Person p = new Person("Alice",1);
+map.put(p,"Engineer");
+
+p = null;      // you removed YOUR reference
+System.gc();
+
+You removed only this reference:
+p  ─X→  Person object
+But HashMap still has:
+HashMap → Entry → key → Person object
+So object is still reachable → GC cannot delete it
+👉 Therefore entry remains in map
+In WeakHashMap
+WeakHashMap → weak reference → Person object
+
+Weak reference ≠ protection
+So after p = null → no strong reference exists → GC deletes object → entry removed
+Final clear rule
+HashMap: map keeps key alive
+WeakHashMap: map does NOT keep key alive
+So yes ✔
+Even if you do p = null, HashMap entry stays because map itself is holding the key.
+
+So it never holds objects strongly in memory → good for cache
